@@ -15,6 +15,10 @@
   <link rel="icon" href="./images/favicon.ico" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,200" />
   <%@ include file="header.jsp" %>
   <script src="./js/jquery-3.7.1.min.js"></script>
   <title>제품 관리</title>
@@ -143,13 +147,19 @@
 <div class="pagination">
    
     <!-- 처음 버튼 -->
-    <a class="startPage" href="./product_list.jsp?page=1&search=<%= searchText %>">처음</a>
+    <a class="startPage" href="./product_list.jsp?page=1&search=<%= searchText %>" class="startPage">
+		<span class="material-symbols-outlined">keyboard_double_arrow_left</span>
+    </a>
  
     <!-- 이전 버튼 -->
     <% if (currentPage > 1) { %>
-    	<a href="./product_list.jsp?page=<%= currentPage - 1 %>&search=<%= searchText %>">이전</a>
+    	<a href="./product_list.jsp?page=<%= currentPage - 1 %>&search=<%= searchText %>" class="beforePage">
+		    <span class="material-symbols-outlined">arrow_left</span>
+    	</a>
 	<% } else { %>
-    	<span class="beforePage">이전</span>
+    	<button class="beforePage" type="button">
+		    <span class="material-symbols-outlined">arrow_left</span>
+		</button>
 	<% } %>
 	
 	<!-- 버튼 목록 -->
@@ -160,7 +170,7 @@
 				<a href="./product_list.jsp?page=<%= iCount %>&search=<%= searchText %>" class="boldPage"><%= " " + iCount %></a>
 	<%		} else {
 	%>		
-				<a href="./product_list.jsp?page=<%= iCount %>&search=<%= searchText %>"><%= " " + iCount %></a> 
+				<a href="./product_list.jsp?page=<%= iCount %>&search=<%= searchText %>" class="listPage"><%= " " + iCount %></a> 
 	<% 
 				}
 		}
@@ -168,13 +178,19 @@
   	     
 	<!-- 다음 버튼 -->
 	<% if (currentPage < totalPage) { %>
-	        <a href="./product_list.jsp?page=<%= currentPage + 1 %>&search=<%= searchText %>">다음</a>
+	        <a href="./product_list.jsp?page=<%= currentPage + 1 %>&search=<%= searchText %>" class="nextpage">
+		    	<span class="material-symbols-outlined">arrow_right</span>
+			</a>
 	    <% } else { %>
-	        <span class="next">다음</span>
+		    <button class="nextpage" type="button">
+		    	<span class="material-symbols-outlined">arrow_right</span>
+			</button>
 	    <% } %>
    
    <!-- 마지막 버튼 -->
-   <a href="./product_list.jsp?page=<%= totalPage %>&search=<%= searchText %>">마지막</a>
+   <a href="./product_list.jsp?page=<%= totalPage %>&search=<%= searchText %>" class="lastPage">
+	    <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
+   </a>
 
 </div>
 

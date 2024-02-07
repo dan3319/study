@@ -51,7 +51,7 @@
 	
 .product_header {
   background-color: #8AAAE5;
-  width: 100%;
+  width: 1010px;
   margin-left: 220px;
   height: 40px;
 }
@@ -61,13 +61,14 @@
 	text-align: center;
 	font-size: 18px;
     font-weight: bold;
+    font-family: 'SejonghospitalBold'; 
     display: inline-block;
     line-height: 40px;
     box-sizing: content-box;
 }
 
 .product_header .rnum, .gender, .delete{
-  width: 60px;
+  width: 61px;
 }
 
 .product_header .num{
@@ -75,7 +76,7 @@
 }
 
 .product_header .category, .type{
-  width: 130px;
+  width: 110px;
 }
 
 .product_header .name{
@@ -90,13 +91,9 @@
   width: 80px;
 }
 
-.product_header .delete{
-	border-right: 2px solid #f8f7f8;
-}
-
 .product_list {
   background-color: #f8f7f8;
-  width: 100%;
+  width: 1010px;
   margin-left: 220px;
 }
 
@@ -114,7 +111,7 @@
 }
 
 .product_list .list_rnum, .list_gender, .list_delete{
-	width: 60px;
+	width: 62px;
 }
 
 .product_list .list_num{
@@ -122,7 +119,7 @@
 }
 
 .product_list .list_category, .list_type{
-	width: 130px;
+	width: 110px;
 }
 
 .product_list .list_name{
@@ -141,6 +138,35 @@
 	border-right: 2px solid #dfdbdd;
 }
 
-.boldPage {
+.pagination{
+	width: 1010px;
+	margin-left: 220px;
+	display: flex;
+	justify-content: center;
+	height: 30px;
+	
+}
+.pagination .startPage, .beforePage, .listPage, .boldPage, .nextpage, .lastPage{
+	text-decoration-line: none;
+	padding: 10px;
+	line-height: 30px;
+	font-size: 20px;
+	
+}
+
+.pagination .listPage, .boldPage{
+	padding-top: 5px;
+	
+}
+
+.pagination .boldPage {
 	font-weight: bold;
 }
+
+.pagination .startPage, .beforePage, .nextpage, .lastPage{
+	background-color: #fff;
+	border: 0;
+}
+
+
+
