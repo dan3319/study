@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+@font-face {
+    font-family: 'SejonghospitalBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+#round{
+	margin-top:10px;
+	position: fixed;
+	width: 100px;
+	padding: 10px;
+}
+
+#round #menu{
+    position: relative;
+	width: 100px;
+    height: auto;
+}
+
+#round #menu #menubtnlabel span{
+  font-size: 50px;
+}
+
+#menu #menubtnlabel:hover{
+	cursor: pointer;
+}
+
+.dir{
+    text-decoration: none;
+}
+.dir:hover .dir2{
+    text-decoration: underline;
+}
+
+#menu li .dir{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    border: 1px solid white;
+    padding: 20px;
+	
+font-family: 'SejonghospitalBold';
+    color: #F0EDCF;
+}
+#menu #menuUl{
+    box-sizing: border-box;
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    background-color: #40A2D8;
+    transition: all 0.3s;
+}
+
+#round #menu #menubtn{
+    display: none;
+}
+
+#menubtn:checked~#menuUl{
+    transform: scaleY(1);
+}
