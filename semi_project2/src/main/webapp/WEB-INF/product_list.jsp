@@ -42,20 +42,6 @@
 	</div>
   </div>
 
-	<!-- 온체인지 -->
-	<div>
-		 <select id="onchange" name="onchange" class="onchange" onchange="changeSelect();">
-			<option value="item_num" class="">제품번호</option>
-			<option value="gender">성별</option>
-			<option value="category">카테고리</option>
-			<option value="item_type">종류</option>
-			<option value="item_name">제품이름</option>
-			<option value="item_size">사이즈</option>
-			<option value="color">색상</option>
-			<option value="price">가격</option>
-		</select>
-	</div>
-
 <!-- 제품 추가 -->
   <div class="add_btn">
       <a href="./product_add_form.jsp">제품 등록</a>
@@ -80,6 +66,19 @@
 	</table>
 </div>
 
+<!-- 온체인지 -->
+<div>
+	 <select id="onchange" name="onchange" class="onchange" onchange="changeSelect();">
+		<option value="item_num" class="">제품번호</option>
+		<option value="gender">성별</option>
+		<option value="category">카테고리</option>
+		<option value="item_type">종류</option>
+		<option value="item_name">제품이름</option>
+		<option value="item_size">사이즈</option>
+		<option value="color">색상</option>
+		<option value="price">가격</option>
+	</select>
+</div>
 
 <%
     String JDBC_URL = "jdbc:oracle:thin:@1.220.247.78:1522:orcl";
