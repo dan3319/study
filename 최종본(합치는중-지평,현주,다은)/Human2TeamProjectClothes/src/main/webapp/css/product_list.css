@@ -1,0 +1,187 @@
+@charset "EUC-KR";
+.body_header {
+  border-bottom: solid 1px #f8f7f8;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.body_header .search {
+  margin-top: -80px;
+  display: flex;
+}
+
+.body_header .search .search_pro {
+  height: 50px;
+  width: 180px;
+  margin: 80px 0 0 200px;
+  border-radius: 10px;
+}
+
+.body_header .search .search_a {
+  display: inline-block;
+}
+
+.body_header .search .search_button {
+  height: 50px;
+  margin: 80px 0 0 1px;
+  border-radius: 10px;
+  background-color: #40A2D8;
+  color : #F0EDCF;
+}
+
+.body_header .onchange{
+  height: 50px;
+  width: 180px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.body_header .onchange>option{
+  border-radius: 10px;
+}
+.body_header .add_btn {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 0px 11px 0 0;
+  background-color: #F0EDCF;
+  color: #40A2D8;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'SejonghospitalBold'; 
+  text-align: center;
+  line-height: 50px;
+}
+
+.body_header .add_btn:hover {
+	background-color: #40A2D8;
+	color: #F0EDCF;
+}
+         
+.body_header .add_btn a {
+	text-decoration-line: none;
+}
+	
+.product_header {
+  background-color: #8AAAE5;
+  width: 1010px;
+  margin-left: 220px;
+  height: 40px;
+}
+
+.product_header table th{
+	border-left: 2px solid #f8f7f8;
+	text-align: center;
+	font-size: 18px;
+    font-weight: bold;
+    font-family: 'SejonghospitalBold'; 
+    display: inline-block;
+    line-height: 40px;
+    box-sizing: content-box;
+}
+
+.product_header .rnum, .gender, .delete{
+  width: 61px;
+}
+
+.product_header .num{
+  width: 85px;
+}
+
+.product_header .category, .type{
+  width: 110px;
+}
+
+.product_header .name{
+  width: 270px;
+}
+
+.product_header .size{
+  width: 70px;
+}
+
+.product_header .color, .price{
+  width: 80px;
+}
+
+.product_list {
+  background-color: #f8f7f8;
+  width: 1010px;
+  margin-left: 220px;
+}
+
+.product_list table td{
+	border-bottom: 2px solid #dfdbdd;
+	border-left: 2px solid #dfdbdd;
+	text-align: center;
+	padding: 20px 0 20px 0;
+	box-sizing: content-box;
+	
+}
+
+.product_list .list_rnum{
+	font-weight: bold;
+}
+
+.product_list .list_rnum, .list_gender, .list_delete{
+	width: 62px;
+}
+
+.product_list .list_num{
+	width: 85px;
+}
+
+.product_list .list_category, .list_type{
+	width: 110px;
+}
+
+.product_list .list_name{
+  	width: 270px;
+}
+
+.product_list .list_size{
+ 	width: 70px;
+}
+
+.product_list .list_color, .list_price{
+  	width: 80px;
+}
+
+.product_list .list_delete{
+	border-right: 2px solid #dfdbdd;
+}
+
+.pagination{
+	width: 1010px;
+	margin-left: 220px;
+	display: flex;
+	justify-content: center;
+	height: 30px;
+	
+}
+.pagination .startPage, .beforePage, .listPage, .boldPage, .nextpage, .lastPage{
+	text-decoration-line: none;
+	padding: 10px;
+	line-height: 30px;
+	font-size: 20px;
+	
+}
+
+.pagination .listPage, .boldPage{
+	padding-top: 5px;
+	
+}
+
+.pagination .boldPage {
+	font-weight: bold;
+}
+
+.pagination .startPage, .beforePage, .nextpage, .lastPage{
+	background-color: #fff;
+	border: 0;
+}
+
+
+

@@ -1,0 +1,490 @@
+.inner {
+   margin-top: 80px;
+   margin-left: 224px; 
+   width: 1000px; 
+   
+}
+
+a {
+  text-decoration: none;
+}
+
+.inner .top {
+  display: inline-flex;
+  width: 950px;
+  height: 70px;
+  padding: 0px 16px 0px 32px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 955.91px;
+  background: #FFF;
+  box-shadow: 0px 2.4px 28px 0px rgba(58, 59, 69, 0.15);
+  position:relative;
+}
+
+.inner .top .serach-product {
+ display: flex;
+}
+  
+#search-text {
+    cursor: pointer;
+    border: 2px solid skyblue;
+    border-radius: 5px;
+    display: flex;
+    width: 85px;
+    height: 38px;
+    padding: 8.8px 12px 10.2px 12px;
+    flex-shrink: 0;
+    margin-top: 10px;
+    font-size: 20px;
+}
+  
+#search-text:focus {
+  outline: none;
+  width: 361px;
+  transition: 1s;
+}
+
+.inner .top #search {
+  display: flex;
+  width: 15px;
+  height: 15px;
+  padding: 12px 12.637px 12px 13px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0px 5.6px 5.6px 0px;
+  border-radius: 50px;
+  background: #4E73DF;
+  color: #FFF;
+  margin-left: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 19px;
+}
+
+.inner .top .search-date {
+	display:flex;
+	align-items: center;
+	width: 296px;
+	height: 40px;
+	position: absolute;
+	right:  150px;
+	bottom: 10px;
+	gap: 8px;
+}
+
+#search-date {
+	font-size: 17px;
+	padding: 0 10px;
+	border: 2px solid skyblue;
+  border-radius: 5px;
+}
+
+.inner .top .search-date #searchDate {
+  display: flex;
+  width: 15px;
+  height: 15px;
+  padding: 12px 12.637px 12px 13px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0px 5.6px 5.6px 0px;
+  border-radius: 50px;
+  background: #4E73DF;
+  color: #FFF;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.inner .top #help {
+  	position: absolute;
+  	right: 20px;
+}
+  
+.inner .top .tip {
+	padding: 15px 20px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  position:absolute;
+  right: 50px;
+  top: 7px;
+  font-size: 12px;
+  display: none;
+}
+
+.inner .top #help:hover + .tip {
+  display: block;
+}
+
+.inner .top .tip > div {
+	margin: 5px auto;
+}
+
+.inner .top .serach-product h2 {
+  font-size: 25px;
+  margin: 15px;
+  font-weight: 600;
+  }
+  
+.wrapper {
+  width: 1000px;
+  height: 500px;
+  margin-top: 50px;
+  border-radius: 10px;
+  position: relative;
+  background: #FFF;
+  box-shadow: 0px 3px 28px 8px rgba(58, 59, 69, 0.15);
+}
+  
+.wrapper .header {
+  text-align: center;
+  display: block;
+  height: 20px;
+  flex-shrink: 0;
+  color: #666666;
+  font-family: Nunito;
+  font-size:25px;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.wrapper .content-name {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  margin: 0 50px;
+}
+
+
+.wrapper .content-box {
+  display: flex;
+  position:relative;
+  align-items: center;
+  padding: 15px;
+  font-size: 15px;
+  border-bottom: 1px solid #c8c8c8;
+  margin: 15px 10px;
+  padding-bottom: 20px;
+}
+
+.wrapper .content-box .content_no {
+	width: 50px;
+	text-align: center;
+	position:absolute;
+	left: 5%;
+}
+
+.wrapper .content-box .status {
+	position:absolute;
+	left: 23%;
+	cursor: pointer;
+	transition: transform 0.3s ease-in-out;
+}
+
+.wrapper .content-box .status.active {
+	position:absolute;
+	left: 22%;
+	top:4px;
+	width: 56px;
+	height: 15px;
+	padding: 4px;
+  background-color: #FAFA96;
+  border-radius: 20px;
+  text-align: center;
+  transform: scale(1.5);
+}
+
+
+.wrapper .content-box .content_date {
+	position:absolute;
+	left: 37%;
+}
+
+.wrapper .content-box .content_name {
+	position:absolute;
+	left: 54%;
+}
+
+
+.wrapper .content-box .quantity {
+	position:absolute;
+	right: 25%;
+}
+.wrapper .content-box .delete {
+	position:absolute;
+	right: 7%;
+	bottom: 10%;
+}
+
+.wrapper .content-box .delete button {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	border: 1px solid #4E73DF;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+}
+
+.btn {
+  width: 260px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 800;
+  border: 1px solid skyblue;
+  background: #4E73DF;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 50px;
+  bottom: 20px;
+}
+
+
+ #nav {
+ 	 position:fixed;
+   top:0;
+   right:0;
+   background-color:#FFF; 
+   border: 1px solid #c8c8c8; 
+   color: #666666;
+   height:100vh;
+   padding:2em;
+   transform:translateX(100%);
+   transition: transform 0.3s ease-in-out;
+}
+  
+#nav.active {
+  transform:translateX(0);
+}
+
+#nav .wrap {
+	width: auto;
+	height: 800px;
+	margin: 50px auto;
+	position: relative;
+}
+
+
+#nav .wrap .orderInfo {
+	width:  450px;
+	height: 40px;
+	margin: auto;
+}
+
+#nav .wrap .status-info {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 60px;
+}
+
+#nav .wrap .status-info button {
+	position: absolute;
+	top: 2px;
+	right: 54%;
+	width: 25px; 
+	height: 25px;
+	border-radius: 31px;
+	cursor: pointer;
+	border: 1px solid skyblue;
+	background-color: white;
+}
+
+#nav .wrap .status-info button .material-symbols-outlined {
+	position: absolute;
+	top: 0;
+	right: -5%;
+}
+
+#nav .wrap .status-info button:hover {
+	background-color: skyblue;
+}
+
+.wrapper .content-box .delete button span {
+	position: absolute;
+}
+
+#nav .wrap .status-info select {
+  width:80px; 
+  height:30px;
+  font-size:15px;
+  border: 1;
+  border-radius: 10px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #c8c8c8;
+}
+
+#nav .wrap .status-info select, input, button:focus {outline: none;}
+
+#nav .wrap .status-info select:hover + .tip {
+  display: block;
+}
+
+#nav .tip {
+	padding: 8px 8px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  position:absolute;
+  left:72px;
+  top: 32px;
+  font-size: 11px;
+	display:none;
+}
+
+
+#nav .wrap input {
+	width: 120px;
+  height:25px;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+}
+
+#nav .content-info {
+	width: auto;
+	height: 25px;
+	border-bottom: 1px solid #c8c8c8;
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+}
+
+
+#nav .content-info .ftip {
+	padding: 8px 8px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  position:absolute;
+  right: 136px;
+  top: 16px;
+  font-size: 11px;
+  display: none;
+}
+
+#nav .wrap:hover .ftip {
+  display: block;
+}
+
+#nav .wrap:hover .content-info:not(:hover) .ftip {
+  display: none;
+}
+
+#nav .content-info-box {
+	position: relative;
+	height: 30px;
+	margin-top: 5px;
+}
+
+#nav .content-info-box div {
+	display: flex;
+	justify-content: space-between;
+}
+
+#nav .content-info-box .commenter {
+	position: absolute;
+  right: 36%;
+}
+#nav .follow-wrap {
+	width: 430px;
+	height: 128px;
+	margin: 5px 3px;
+	position: absolute;
+	bottom: 5%;
+	left: -16px;
+	padding: 16px 25px;
+	box-shadow: 5px 8.4px 35px 5px rgba(61, 62, 69, 0.18);
+	background: #FFF;
+	border-radius: 10px;
+}
+
+#nav .follow-wrap .followup {
+	display:flex;
+	height: 125px;
+	position: relative;
+	gap: 18px;
+}
+
+#nav .follow-wrap .followup-right{
+	display: flex;
+	gap:17px;
+}
+
+#toggleButton {
+  position: absolute;
+  top: 5%;
+  left: -6%;
+  cursor: pointer;
+}
+
+#nav .follow-wrap .followup textarea {
+	position:absolute;
+	bottom:0;
+	left:0;
+	border: 1px solid #c8c8c8;
+  border-radius: 10px;
+  resize: none;
+}
+
+#nav .follow-wrap .followup textarea:focus {
+  border: 1px solid #c8c8c8;
+  outline: none;
+}
+
+.wrapper textarea:hover {
+  border: 1px solid pink;
+}
+
+#nav .wrap .follow-wrap button.ok {
+	width: 32px; 
+	height: 30px;
+	border-radius: 31px;
+	cursor: pointer;
+	border: 1px solid skyblue;
+	background-color: white;
+	margin: -1px 4px;
+}
+
+#nav .wrap .follow-wrap button.ok:hover {
+	background-color: skyblue;
+}
+
+.pagination a {
+	color: #666666;
+}
+
+.pagination a.active {
+		width: 10px;
+		height: 19px;
+    border: 1px solid skyblue;
+    border-radius: 15px;
+    transform: scale(1.5);
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	gap: 3%;
+	margin-top: 3%;
+}
+
+.pagination #pageNum {
+	padding: 1px 5px;
+}
