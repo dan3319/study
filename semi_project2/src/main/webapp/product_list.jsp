@@ -68,7 +68,7 @@
 
 <!-- 온체인지 -->
 <div>
-	 <select id="onchange" name="onchange" class="onchange" onchange="chageSelect()">
+	 <select id="onchange" name="onchange" class="onchange" onchange="changeSelect();">
 		<option value="item_num" class="">제품번호</option>
 		<option value="gender">성별</option>
 		<option value="category">카테고리</option>
@@ -218,12 +218,12 @@
 		}
 	}
 	
-	function chageSelect(){
+	function changeSelect(){
+		//alert('aaa');
 		var select  = document.getElementById("onchange");
 	    var selectValue = select.options[select.selectedIndex].value;   // select element에서 선택된 option의 value가 저장된다.
 	    location.href = "./product_list_onchange.jsp?onchange=" + selectValue;  // 페이지의 주소를 material = 선택된데이터(즉 WHERE 원재자명 = selectValue 이런느낌)
 	}
-	
 </script>
 
 <%@ include file="footer.jsp"%>

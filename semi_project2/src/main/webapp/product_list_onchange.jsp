@@ -22,12 +22,18 @@
 <body>
 <%@ include file="header.jsp" %>
 <%
+   //검색
    String searchText = request.getParameter("search");
    if (searchText == null) {
       searchText = "";
    }
+   
+   // 온체인지
+   String onchange = request.getParameter("onchange");
 %>
 <div class="body_header">
+
+
 <!-- 검색창 -->
   <div class="search">
   	<div style="display: inline-block;">
@@ -40,6 +46,20 @@
 			</button>
 		</a>	
 	</div>
+  </div>
+
+  <!-- 온체인지 -->
+  <div>
+	 <select id="onchange" name="onchange" class="onchange" onchange="changeSelect();">
+		<option value="item_num" <%= onchange.equals("item_num") ? "selected" : "" %>>제품번호</option>
+		<option value="gender" <%= onchange.equals("gender") ? "selected" : "" %>>성별</option>
+		<option value="category" <%= onchange.equals("category") ? "selected" : "" %>>카테고리</option>
+		<option value="item_type" <%= onchange.equals("item_type") ? "selected" : "" %>>종류</option>
+		<option value="item_name" <%= onchange.equals("item_name") ? "selected" : "" %>>제품이름</option>
+		<option value="item_size" <%= onchange.equals("item_size") ? "selected" : "" %>>사이즈</option>
+		<option value="color" <%= onchange.equals("color") ? "selected" : "" %>>색상</option>
+		<option value="price" <%= onchange.equals("price") ? "selected" : "" %>>가격</option>
+	</select>
   </div>
 
 <!-- 제품 추가 -->
@@ -66,19 +86,6 @@
 	</table>
 </div>
 
-<!-- 온체인지 -->
-<div>
-	 <select id="onchange" name="onchange" class="onchange" onchange="chageSelect()">
-		<option value="item_num" class="">제품번호</option>
-		<option value="gender">성별</option>
-		<option value="category">카테고리</option>
-		<option value="item_type">종류</option>
-		<option value="item_name">제품이름</option>
-		<option value="item_size">사이즈</option>
-		<option value="color">색상</option>
-		<option value="price">가격</option>
-	</select>
-</div>
 
 <%
     String JDBC_URL = "jdbc:oracle:thin:@1.220.247.78:1522:orcl";
@@ -120,9 +127,6 @@
 	  if (totalCount % countList > 0) {
 	   	  totalPage++;
      }
-	  
-	  // 온체인지
-	  String onchange = request.getParameter("onchange");
 	  
       // 데이터 가져오기
       pstmt = conn.prepareStatement("SELECT rnum, ITEM_NUM, GENDER, CATEGORY, ITEM_TYPE, ITEM_NAME, ITEM_SIZE, COLOR, PRICE FROM	(SELECT ROWNUM AS rnum, A.* FROM (SELECT * FROM PRODUCTS WHERE ITEM_NAME LIKE '%" + searchText + "%'  ORDER BY " + onchange + ") A WHERE ROWNUM <= ?) WHERE rnum >= ?"); // 2-2. SQL 쿼리 실행);
@@ -166,13 +170,13 @@
 <div class="pagination">
    
     <!-- 처음 버튼 -->
-    <a class="startPage" href="./product_list.jsp?page=1&search=<%= searchText %>" class="startPage">
+    <a class="startPage" href="./product_list_onchange.jsp?page=1&search=<%= searchText %>&onchange=<%= onchange %>" class="startPage">
 		<span class="material-symbols-outlined">keyboard_double_arrow_left</span>
     </a>
  
     <!-- 이전 버튼 -->
     <% if (currentPage > 1) { %>
-    	<a href="./product_list.jsp?page=<%= currentPage - 1 %>&search=<%= searchText %>" class="beforePage">
+    	<a href="./product_list_onchange.jsp?page=<%= currentPage - 1 %>&search=<%= searchText %>&onchange=<%= onchange %>" class="beforePage">
 		    <span class="material-symbols-outlined">arrow_left</span>
     	</a>
 	<% } else { %>
@@ -186,10 +190,10 @@
 		for (int iCount = startPage; iCount <= totalPage; iCount++) {	// 연달아서 페이지 번호 출력 
 			if (iCount == currentPage ){
 	%>
-				<a href="./product_list.jsp?page=<%= iCount %>&search=<%= searchText %>" class="boldPage"><%= " " + iCount %></a>
+				<a href="./product_list_onchange.jsp?page=<%= iCount %>&search=<%= searchText %>&onchange=<%= onchange %>" class="boldPage"><%= " " + iCount %></a>
 	<%		} else {
 	%>		
-				<a href="./product_list.jsp?page=<%= iCount %>&search=<%= searchText %>" class="listPage"><%= " " + iCount %></a> 
+				<a href="./product_list_onchange.jsp?page=<%= iCount %>&search=<%= searchText %>&onchange=<%= onchange %>" class="listPage"><%= " " + iCount %></a> 
 	<% 
 				}
 		}
@@ -197,7 +201,7 @@
   	     
 	<!-- 다음 버튼 -->
 	<% if (currentPage < totalPage) { %>
-	        <a href="./product_list.jsp?page=<%= currentPage + 1 %>&search=<%= searchText %>" class="nextpage">
+	        <a href="./product_list_onchange.jsp?page=<%= currentPage + 1 %>&search=<%= searchText %>&onchange=<%= onchange %>" class="nextpage">
 		    	<span class="material-symbols-outlined">arrow_right</span>
 			</a>
 	    <% } else { %>
@@ -207,14 +211,15 @@
 	    <% } %>
    
    <!-- 마지막 버튼 -->
-   <a href="./product_list.jsp?page=<%= totalPage %>&search=<%= searchText %>" class="lastPage">
+   <a href="./product_list_onchange.jsp?page=<%= totalPage %>&search=<%= searchText %>&onchange=<%= onchange %>" class="lastPage">
 	    <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
    </a>
 
 </div>
+</div>
 <script>
   	function searchText() {
-  		location.href = "./product_list.jsp?search=" + $('#search_pro').val();
+  		location.href = "./product_list_onchange.jsp?onchange=<%= onchange %>&search=" + $('#search_pro').val();
   	}
   	
 	function productDelete(item_num) {
@@ -223,12 +228,11 @@
 		}
 	}
 	
-	function chageSelect(){
+	function changeSelect(){
 		var select  = document.getElementById("onchange");
 	    var selectValue = select.options[select.selectedIndex].value;   // select element에서 선택된 option의 value가 저장된다.
-	    location.href = "./product_list.jsp?onchange=" + selectValue;  // 페이지의 주소를 material = 선택된데이터(즉 WHERE 원재자명 = selectValue 이런느낌)
+	    location.href = "./product_list_onchange.jsp?onchange=" + selectValue;  // 페이지의 주소를 material = 선택된데이터(즉 WHERE 원재자명 = selectValue 이런느낌)
 	}
-	
 </script>
 
 <%@ include file="footer.jsp"%>

@@ -31,6 +31,16 @@
   color : #F0EDCF;
 }
 
+.body_header .onchange{
+  height: 50px;
+  width: 180px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.body_header .onchange>option{
+  border-radius: 10px;
+}
 .body_header .add_btn {
   width: 100px;
   height: 50px;
