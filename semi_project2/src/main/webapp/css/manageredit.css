@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Hahmlet-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 60
+}
+
+
+.container {
+   font-family: 'Hahmlet-Regular';
+   position: relative;
+   width: 550px;
+   height: 250px;
+   top: 335px;
+   left: 415px;
+   border-radius: 5px;
+   border: 1px outset gainsboro
+}
+
+.container h2 {
+   padding-top: 20px;
+   font-size: 30px;
+   text-align: center;
+}
+
+.container .container_in {
+   margin: 20px;
+
+}
+
+.container .name {
+   position: relative;
+   text-decoration: underline;
+   top: -6px;
+   left: 5px;
+}
+
+.container .email {
+   position: relative;
+   text-decoration: underline;
+   top: 13px;
+   left: 31px;
+}
+
+.container .id {
+   position: relative;
+   text-decoration: underline;
+   top: 32px;
+   left: 30px;
+}
+
+.container .phone {
+   position: relative;
+   text-decoration: underline;
+   top: 4px;
+   left: 30px;
+}

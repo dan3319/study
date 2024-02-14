@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'TTHakgyoansimMoheomgaB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimMoheomgaB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+#container{
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 200px;
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+
+}
+
+#lineChart{
+    width: auto;
+    height: 700px;
+}
+
+.title{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+    height: 50px;
+}
+
+#years{
+    width: 60px;
+    height:30px;
+    text-align: center;
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.18);
+}
+
+#total{
+	margin-top:10px;
+	font-size: 20px;
+	font-family: 'TTHakgyoansimMoheomgaB';
+}

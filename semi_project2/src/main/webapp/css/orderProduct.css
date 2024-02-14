@@ -1,0 +1,256 @@
+
+.inner {
+   margin-top: 80px;
+   margin-left: 224px; 
+   width: 1000px; 
+   color: #666666;
+}
+
+a {
+  text-decoration: none;
+}
+.inner .top {
+	position: relative;
+  display: inline-flex;
+  width: 950px;
+  height: 70px;
+  padding: 0px 16px 0px 32px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 955.91px;
+  background: #FFF;
+  box-shadow: 0px 2.4px 28px 0px rgba(58, 59, 69, 0.15);
+}
+
+.inner .top .serach-bar {
+ display: flex;
+}
+
+#search-text {
+    cursor: pointer;
+    border: 2px solid skyblue;
+    border-radius: 5px;
+    display: flex;
+    width: 361px;
+    height: 38px;
+    padding: 8.8px 12px 10.2px 12px;
+    flex-shrink: 0;
+    margin-top: 10px;
+}
+
+.inner .top .serach-bar .material-symbols-outlined {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  padding: 12px 12.637px 12px 13px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0px 5.6px 5.6px 0px;
+  border-radius: 50px;
+  background: #4E73DF;
+  color: #FFF;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+ .inner .top .serach-bar #print {
+ 	position: absolute;
+ 	right: 1px;
+ 	background: #FFF;
+ 	color: #4E73DF;
+ }
+
+.inner .top .serach-bar h2 {
+  font-size: 20px;
+  margin: 15px;
+  font-weight: 600;
+}
+
+.wrapper{
+  width: 1000px;
+  height: 650px;
+  margin-top: 50px;
+  border-radius: 10px;
+  position: relative;
+  background: #FFF;
+  box-shadow: 0px 3px 28px 8px rgba(58, 59, 69, 0.15);
+}
+
+.wrapper .title {
+  text-align: center;
+  display: block;
+  height: 20px;
+  flex-shrink: 0;
+  color: #666666;
+  font-family: Nunito;
+  font-size:20px;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0 auto;
+  padding: 20px;
+  
+}
+
+.wrapper .wrapper-content{
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  height: 800px;
+  font-size: 15px;
+}
+
+
+.wrapper .wrapper-content .firstline{
+  display: flex;
+  margin: 10px 0;
+  padding: 10px 30px;
+  justify-content: space-between;
+}
+
+.wrapper .wrapper-content .firstline .img-file button{
+  position: absolute;
+  left: 33%;
+  top: 11.5%;
+}
+
+.btn {
+  width: 200px;
+  height: 25px;
+  font-size: 15px;
+  font-weight: 800;
+  background: #fff;
+  border: 1px solid skyblue;
+  background: #4E73DF;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item.primary-info {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto;
+}
+
+input {
+	width: 150px;
+  height:20px;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+}
+
+input::placeholder {
+  font-size: 15px;
+  text-align: center;
+  justify-self: center;
+}
+
+input:focus {outline: none;}
+
+input:hover {
+  border: 1px solid skyblue;
+}
+
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+	-webkit-text-fill-color: #000;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.wrapper select {
+  width:100px; 
+  height:20px;
+  font-size:15px;
+  border: 1;
+  border-radius: 10px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #c8c8c8;
+}
+
+.wrapper select:focus {outline: none;}
+
+.wrapper select:hover {
+  border: 1px solid skyblue;
+}
+
+.item.primary-info {
+  margin: 20px auto;
+}
+
+.second-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.item.last-info {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.item.last-info div {
+	margin: 0 20px;
+}
+
+.item.last-info input{
+  width: 50px;
+  height:20px;
+  font-size: 15px;
+  margin: 20px 0px;
+}
+
+.comment {
+	display:flex;
+	justify-content:space-around;
+  margin: 30px 40px;
+}
+
+.comment .comment-text{
+  margin: 10px auto;
+}
+
+.comment .item-request{
+  
+}
+
+.comment .product-details{
+  
+}
+
+.comment textarea{
+  width: 300px;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+  font-size: 15px;
+  resize: none;
+}
+
+.comment textarea:focus {
+  border: 1px solid #c8c8c8;;
+}
+.wrapper textarea:focus {outline: none;}
+
+.wrapper textarea:hover {
+  border: 1px solid skyblue;
+}
+.submit-button{
+  position: absolute;
+  right: 50px;
+  bottom: 20px;
+}

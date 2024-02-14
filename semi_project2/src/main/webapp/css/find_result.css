@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Hahmlet-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.id_find {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	width: 350px;
+	height: 200px;
+	border-radius: 15px;
+	font-family: 'Hahmlet-Regular';
+	color: black;
+	font-size: 24px;
+	font-weight: 600;
+	background-color: #FFE4BA;
+}
+
+.id_find .id_find_but {
+	position: relative;
+	top: 15px;
+	width: 200px;
+	height: 35px;
+	font-family: 'Hahmlet-Regular';
+	border-radius: 7px;
+	border: none;
+	color: white;
+	font-weight: bold;
+	background-color: #FFC0BA;
+	cursor: pointer;
+}
+
+.id_find_fail {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	width: 500px;
+	height: 170px;
+	border-radius: 15px;
+	font-family: 'Hahmlet-Regular';
+	color: black;
+	font-size: 24px;
+	font-weight: 600;
+	background-color: #FFE4BA;
+}
+
+.id_find_fail .id_find_fail_but {
+	position: relative;
+	top: 15px;
+	width: 200px;
+	height: 35px;
+	font-family: 'Hahmlet-Regular';
+	border-radius: 7px;
+	border: none;
+	color: white;
+	font-weight: bold;
+	background-color: #FFC0BA;
+	cursor: pointer;
+}
+
+.pw_find {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	width: 350px;
+	height: 200px;
+	border-radius: 15px;
+	font-family: 'Hahmlet-Regular';
+	color: #FFC0BA;
+	font-size: 24px;
+	font-weight: 600;
+	background-color: #FFE4BA;
+	
+}
+
+.pw_find .pw_find_but {
+	position: relative;
+	top: 15px;
+	width: 200px;
+	height: 35px;
+	font-family: 'Hahmlet-Regular';
+	border-radius: 7px;
+	border: none;
+	color: white;
+	font-weight: bold;
+	background-color: #FFC0BA;
+	cursor: pointer;
+}
+
+.pw_find_fail {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	width: 500px;
+	height: 170px;
+	border-radius: 15px;
+	font-family: 'Hahmlet-Regular';
+	color: black;
+	font-size: 24px;
+	font-weight: 600;
+	background-color: #FFE4BA;
+}
+
+.pw_find_fail .pw_find_fail_but {
+	position: relative;
+	top: 15px;
+	width: 200px;
+	height: 35px;
+	font-family: 'Hahmlet-Regular';
+	border-radius: 7px;
+	border: none;
+	color: white;
+	font-weight: bold;
+	background-color: #FFC0BA;
+	cursor: pointer;
+}

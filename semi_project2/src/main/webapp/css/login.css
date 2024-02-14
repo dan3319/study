@@ -1,0 +1,188 @@
+@font-face {
+    font-family: 'Hahmlet-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+	background-color: #FFE4BA;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+@font-face {
+    font-family: 'EASTARJET-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/EASTARJET-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+.conteiner {
+
+}
+
+.conteiner .withe_box {
+    width: 637px;
+    height: 840px;
+	position: absolute;
+	left: 26%;
+	top: 3%;
+    background: white;
+    border-radius: 25px;
+}
+
+.conteiner .withe_box .tirle {
+    padding-top: 230px;
+    color: #FFC0BA;
+    text-align: center;
+    font-family: 'Hahmlet-Regular';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+
+}
+
+.conteiner .withe_box .log_box {
+    position: relative;
+    left: 140px;
+    padding-top: 35px;
+    width: 360px;
+    height: 313px;
+    
+}
+
+.conteiner .withe_box .log_box .id_box input{
+	font-family: 'Hahmlet-Regular';
+    position: relative;
+    left: 35px;
+    width: 275px;
+    height: 50px;
+    margin-bottom: 55px;
+    background: #FFECBA;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.conteiner .withe_box .log_box .id_box input:hover {
+	background: #f5f5f5;
+	transition: all 0.4s;
+}
+
+.conteiner .withe_box .log_box .id_box .material-symbols-outlined {
+    position: relative;
+    top: 5px;
+    right: 10px;
+}
+
+.conteiner .withe_box .log_box .pw_box input {
+    position: relative;
+    left: 35px;
+    width: 275px;
+    height: 50px;
+    margin-bottom: 55px;
+    background: #FFECBA;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.conteiner .withe_box .log_box .pw_box input:hover {
+	background: #f5f5f5;
+	transition: all 0.4s;
+}
+
+.conteiner .withe_box .log_box .pw_box .material-symbols-outlined {
+    position: relative;
+    top: 5px;
+    right: 10px;
+}
+
+.conteiner .withe_box .log_box {
+    margin-bottom: 30px;
+}
+
+.conteiner .withe_box .log_box .log_but {
+    width: 358px;
+    height: 62px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background-color: white;
+    color: #FFC0BA;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.conteiner .withe_box .log_box .log_but:hover {
+	color: white;
+	background-color: #FFC0BA;
+	transition: all 0.4s;
+}
+
+.conteiner .withe_box .check {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.conteiner .withe_box .check .input_wrap {
+	position: absolute;
+	top: 477px;
+	left: 175px;
+	font-family: 'Hahmlet-Regular';
+	color: #FFC0BA;
+}
+.conteiner .withe_box .check .check_pw {
+    position: relative;
+    top: -43px;
+    left: 337px;
+    width: 160px;    
+}
+
+.conteiner .withe_box .check .check_id {
+	position: relative;
+    top: -60px;
+    left: 125px;
+    width: 100px; 
+}
+
+.conteiner .withe_box .check .check_pw .ck_pw {
+	color: #FFC0BA;
+	text-decoration-line:none;
+	font-family: 'Hahmlet-Regular';
+}
+
+.conteiner .withe_box .check .check_pw .ck_pw:hover {
+	color: #FFC0BA;
+	font-weight: bold;
+	text-decoration: underline;
+	font-family: 'Hahmlet-Regular';
+}
+
+.conteiner .withe_box .check .check_id .ck_id {
+	color: #FFC0BA;
+	text-decoration-line:none;
+	font-family: 'Hahmlet-Regular';
+}
+
+.conteiner .withe_box .check .check_id .ck_id:hover {
+	color: #FFC0BA;
+	font-weight: bold;
+	text-decoration: underline;
+	font-family: 'Hahmlet-Regular';
+}
+
+input:focus+span{
+    color: rgba(0,0,0,0.18);
+}

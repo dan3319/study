@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/header.css">
+<link rel="icon" href="./image/favicon.ico" />
 <title>Insert title here</title>
 </head>
 <body>

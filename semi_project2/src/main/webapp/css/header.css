@@ -17,6 +17,7 @@ header{
 	background-color: #40A2D8;
 	z-index: 1;
 }
+
 .logo{
 	margin:10px 30px;
 	font-family: 'SejonghospitalBold';
@@ -88,3 +89,46 @@ footer img{
 	width:20px;
 	height:20px;
 }
+
+
+
+.menu {
+	position:fixed;
+	top:20px;
+	right:20px;
+	width: 191px;
+	overflow: hidden;
+	z-index: 100;
+  }
+  
+.menu > .list {
+	width: 105%; /*20*5=100%*/
+	float: left;
+	text-align: center;
+	line-height: 40px;
+	background-color: #5778ff;
+  }
+  
+.menu a {
+	color: #fff;
+}
+  
+.menu .submenu > .list {
+	line-height: 50px;
+	background-color: #94a9ff;
+  }
+  
+.menu .submenu {
+	height: 0; /*ul의 높이를 안보이게 처리*/
+	overflow: hidden;
+  }
+  
+.menu>.list:hover {
+	background-color: #94a9ff;
+	transition-duration: 0.5s;
+  }
+  
+.menu>.list:hover .submenu {
+	height: 100px; /*서브메뉴 li한개의 높이 50*5*/
+	transition-duration: 1s;
+  }
