@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="pro_add_header">
+    <h1><a href="./product_list.jsp">제품 목록</a></h1>
+    <div class="pro_add">
+      <h2>제품 작성란</h2>
+      <form action="./product_add.jsp" method="post">
+        <div class="proInfo">
+          <div class="add_gender">
+            <strong>성별</strong>
+              <input type="radio" name="add_gender" value="genderM">남자
+              <input type="radio" name="add_gender" value="genderW">여자
+          </div>
+          <br>
+          <br>
+          <div class="add_category">
+            <strong>카테고리</strong>
+              <select>
+                <option value="top&T">탑&티셔츠</option>
+                <option value="Hoodie&Crew">후디&크루</option>
+                <option value="Jacket&Vest">재킷&베스트</option>
+              </select>
+          </div>
+          <br>
+          <br>
+          <div class="add_type">
+            <strong>종류</strong>
+              <select>
+                <option value="longT">긴팔</option>
+                <option value="shortT">반팔</option>
+                <option value="hoodie">후디</option>
+                <option value="polo">폴로</option>
+                <option value="shirts">셔츠</option>
+              </select>
+          </div>
+          <br>
+          <br>
+          <div class="add_size">
+            <strong>사이즈</strong>
+              <select>
+                <option value="XS">XS</option>
+                <option value="X">X</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+          </div>
+          <br>
+          <br>
+          <div class="add_color">
+            <strong>색상</strong>
+              <input type="text" id="color" name="color" placeholder="색상을 입력해주세요">
+          </div>
+          <br>
+          <br>
+          <div class="add_name">
+            <strong>이름</strong>
+              <input type="text" id="proName" name="proName" placeholder="제품 이름을 입력해주세요">
+          </div>
+          <br>
+          <br>
+          <div class="add_price">
+            <strong>가격</strong>
+              <input type="text" id="proPrice" name="proPrice" placeholder="제품의 가격을 입력해주세요">
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="btn-w">
+          <input type="submit" value="작성" class="input-btn-w" onClick="javascript: prevCheckTextBox();" />
+        </div>
+      </form>
+
+      </div>
+    </div>
+</body>
+</html>
