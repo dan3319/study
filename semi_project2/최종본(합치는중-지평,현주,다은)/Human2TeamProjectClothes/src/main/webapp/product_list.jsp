@@ -111,7 +111,7 @@
       // 행 수 찾기 쿼리
       stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
              ResultSet.CONCUR_UPDATABLE); // 2-2. SQL 쿼리 실행);
-      rs = stmt.executeQuery("SELECT * FROM PRODUCTS");
+      rs = stmt.executeQuery("SELECT * FROM (SELECT * FROM PRODUCTS WHERE ITEM_NAME LIKE '%" + searchText + "%'ORDER BY ITEM_NUM)");
       rs.last();
       totalCount = rs.getRow();	
       rs.beforeFirst();

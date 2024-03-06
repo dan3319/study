@@ -38,7 +38,8 @@
           <div class="add_category">
             <strong>카테고리</strong><br>
               <select id="category" name="category">
-                <option value="탑&티셔츠</">탑&티셔츠</option>
+              <option value="A">---</option>
+                <option value="탑&티셔츠">탑&티셔츠</option>
                 <option value="후디&크루">후디&크루</option>
                 <option value="재킷&베스트">재킷&베스트</option>
               </select>
@@ -48,6 +49,7 @@
           <div class="add_type">
             <strong>종류</strong><br>
               <select id="type" name="type">
+	            <option value="A">---</option>
                 <option value="긴팔">긴팔</option>
                 <option value="반팔">반팔</option>
                 <option value="후디">후디</option>
@@ -66,6 +68,7 @@
           <div class="add_size">
             <strong>사이즈</strong><br>
               <select id="size" name="size">
+	            <option value="A">---</option>
                 <option value="XS">XS</option>
                 <option value="X">X</option>
                 <option value="M">M</option>
@@ -121,7 +124,7 @@
   			return;
   		}
   		if (!$('#type').val()) {	
-  			alert('유형을 선택해주세요.');
+  			alert('종류를 선택해주세요.');
   			$('#type').focus();	
   			
   			return;
