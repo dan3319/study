@@ -20,7 +20,7 @@
   <script src="./js/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-<%@ include file="login_header.jsp" %>
+<%@ include file="header.jsp" %>
 <%
    //검색
    String searchText = request.getParameter("search");
@@ -215,6 +215,7 @@
 	    <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
    </a>
 
+</div>
 </div>
 <script>
   	function searchText() {

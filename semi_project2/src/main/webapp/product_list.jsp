@@ -20,7 +20,7 @@
   <script src="./js/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-<%@ include file="login_header.jsp" %>
+<%@ include file="header.jsp" %>
 <%
    String searchText = request.getParameter("search");
    if (searchText == null) {

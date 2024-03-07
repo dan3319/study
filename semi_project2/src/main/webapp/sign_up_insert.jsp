@@ -23,7 +23,7 @@
 	try {
 		conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
 		
-		String insertQuery = "INSERT INTO MANAGER(ID, PW, NAME, PHONE_NUMBER, EMAIL) VALUES (?,?,?,?,?)";
+		String insertQuery = "INSERT INTO MANAGER(ID, PW, NAME, PHONE, EMAIL) VALUES (?,?,?,?,?)";
 		//System.out.println("오라클 접속 성공");
 		pstmt = conn.prepareStatement(insertQuery);
 
@@ -51,7 +51,7 @@
 
 	<script>
 		alert('가입 완료되었습니다');
-		location.href = '<%= request.getContextPath() %>/login.jsp';
+		location.href = '<%= request.getContextPath() %>/index.jsp';
 	</script>
 <%
 	} else {

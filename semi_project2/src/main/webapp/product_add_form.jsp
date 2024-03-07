@@ -12,7 +12,7 @@
   <script src="./js/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-<%@ include file="login_header.jsp" %>
+<%@ include file="header.jsp" %>
   <div class="pro_add_header">
     <h1><a href="./product_list.jsp" id="form1" class="proList" onSubmit="return false">
     		<span class="material-symbols-outlined">arrow_back</span>제품 목록

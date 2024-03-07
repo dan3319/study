@@ -127,7 +127,7 @@
         
         function yearChange() {
         	var optVal = opt.options[opt.selectedIndex].value;
-            location.href='index.jsp?year='+optVal;
+            location.href='main.jsp?year='+optVal;
 		}
         
         var jan = document.getElementById("month1").value;
