@@ -14,13 +14,13 @@
 <body>
 <%@ include file="header.jsp" %>
   <div class="pro_add_header">
-    <h1><a href="./product_list.jsp" id="form1" class="proList" onSubmit="return false">
+    <h1><a href="./product_list.jsp" class="proList">
     		<span class="material-symbols-outlined">arrow_back</span>제품 목록
     	</a>
     </h1>
     <div class="pro_add">
       <h2>제품 등록 작성란</h2>
-      <form action="./product_add.jsp" method="post">
+      <form action="./product_add.jsp" id="form1" method="post" onSubmit="return false">
         <div class="proInfo">
           <div class="item_num">
             <strong>제품 번호</strong><br>
@@ -117,13 +117,13 @@
   			
   			return;
   		}
-  		if ($('#category').val()) { 	
+  		if ($('#category').val() == "A") { 	
   			alert('카테고리를 선택해주세요.');
   			$('#category').focus();		
   			
   			return;
   		}
-  		if (!$('#type').val()) {	
+  		if ($('#type').val() == "A") {	
   			alert('종류를 선택해주세요.');
   			$('#type').focus();	
   			
@@ -135,7 +135,7 @@
   			
   			return;
   		}
-  		if (!$('#size').val()) {	
+  		if ($('#size').val() == "A") {	
   			alert('사이즈를 선택해주세요.');
   			$('#size').focus();		
   			

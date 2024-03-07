@@ -223,7 +223,7 @@
 		//alert('aaa');
 		var select  = document.getElementById("onchange");
 	    var selectValue = select.options[select.selectedIndex].value;   // select element에서 선택된 option의 value가 저장된다.
-	    location.href = "./product_list_onchange.jsp?onchange=" + selectValue;  // 페이지의 주소를 material = 선택된데이터(즉 WHERE 원재자명 = selectValue 이런느낌)
+	    location.href = "./product_list_onchange.jsp?onchange=" + selectValue + "&search=" + $('#search_pro').val();  // 페이지의 주소를 material = 선택된데이터(즉 WHERE 원재자명 = selectValue 이런느낌)
 	}
 </script>
 
