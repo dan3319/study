@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.projectnike.nike.mapper.mainMapper.StoreMapper">
+    <select id="searchItems" resultType="com.projectnike.nike.domain.mainDomain.ProductsVO">
+        <![CDATA[
+            SELECT item_num, item_type, item_name, item_size
+            FROM
+                (SELECT /*+INDEX_ASC(products SYS_C009677)*/
+                    rownum rn,item_num, item_type, item_name, item_size
+                FROM products
+                WHERE ITEM_NAME
+                LIKE '%'||#{pg.search}||'%' AND ITEM_NUM > 0 AND rownum<=(#{pg.pageNum}*#{pg.pageSize}))
+            WHERE rn > ((#{pg.pageNum}-1)*#{pg.pageSize})
+        ]]>
+    </select>
+
+    <select id="searchCount" resultType="Integer">
+        <![CDATA[
+            SELECT MAX(RN)
+            FROM
+                (SELECT /*+INDEX_ASC(products SYS_C009677)*/
+                    rownum rn,item_num, item_type, item_name, item_size
+                    FROM products
+                    WHERE ITEM_NAME
+                    LIKE '%'||#{search}||'%' AND ITEM_NUM > 0)
+        ]]>
+    </select>
+
+    <insert id="importInsert">
+        INSERT INTO IMPORT
+        VALUES (import_seq.nextval, #{im.item_num}, #{im.import_date},#{im.import_quantity},
+        ((SELECT SUM(IMPORT_QUANTITY) FROM IMPORT WHERE ITEM_NUM = #{im.item_num} GROUP BY ITEM_NUM)+#{im.import_quantity}),
+        (SELECT PRICE*0.5  FROM PRODUCTS p WHERE ITEM_NUM =#{im.item_num}),
+        (SELECT PRICE*0.5*0.1 FROM PRODUCTS p WHERE ITEM_NUM =#{im.item_num}),'입고')
+    </insert>
+
+    <insert id="exportInsert">
+        INSERT INTO EXPORT
+        VALUES(EXPORT_SEQ.NEXTVAL,#{im.item_num},#{im.import_date},#{im.import_quantity},
+        ((SELECT SUM(EXPORT_QUANTITY) FROM EXPORT WHERE ITEM_NUM = #{im.item_num} GROUP BY ITEM_NUM)+#{im.import_quantity}),
+        (SELECT PRICE FROM PRODUCTS p WHERE ITEM_NUM =#{im.item_num}),'출고')
+    </insert>
+
+    <select id="importGroup" resultType="integer">
+        SELECT item_num AS ip FROM import GROUP BY ITEM_NUM ORDER BY ITEM_NUM
+    </select>
+
+    <select id="managementGroup" resultType="integer">
+        SELECT item_num AS im FROM ITEM_MANAGEMENT GROUP BY ITEM_NUM ORDER BY ITEM_NUM
+    </select>
+    <insert id="newManagement">
+        INSERT INTO ITEM_MANAGEMENT
+        VALUES (#{item_num}, (SELECT MAX(TOTAL_QUANTITY) FROM IMPORT i WHERE ITEM_NUM =#{item_num}),0,0)
+    </insert>
+
+    <select id="maxQuantity" resultType="String">
+        SELECT MAX(TOTAL_QUANTITY)
+        FROM <if test="division eq 'import'">IMPORT</if><if test="division eq 'export'">EXPORT</if>
+        WHERE ITEM_NUM =#{item_num}
+    </select>
+
+    <update id="updateManagement">
+        UPDATE ITEM_MANAGEMENT
+        SET IMPORT_QUANTITY = #{quantity}
+        WHERE ITEM_NUM =#{updateNum}
+    </update>
+    <update id="totalManagement">
+        UPDATE ITEM_MANAGEMENT
+        SET
+        EXPORT_QUANTITY = #{quantity},
+        QUANTITY = IMPORT_QUANTITY-#{quantity}
+        WHERE ITEM_NUM = #{item_num}
+    </update>
+</mapper>

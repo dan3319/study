@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.projectnike.nike.mapper.orderMapper.OrderMapper">
+
+    <resultMap type="com.projectnike.nike.domain.orderDomain.OrderVO" id="mapping_orderlist">
+        <result property="num" column="ORDER_NUM"/>
+        <result property="date" column="ORDER_DATE"/>
+        <result property="requester" column="REQUESTER"/>
+        <result property="brand" column="BRAND_NAME"/>
+        <result property="type" column="ITEM_TYPE"/>
+        <result property="place" column="ORDER_PLACE"/>
+        <result property="name" column="ITEM_NAME"/>
+        <result property="size" column="ITEM_SIZE"/>
+        <result property="quantity" column="QUANTITY"/>
+        <result property="chest" column="CHEST"/>
+        <result property="front" column="FRONT_LENGTH"/>
+        <result property="sleeve" column="SLEEVE_LENGTH"/>
+        <result property="back" column="BACK_WIDTH"/>
+        <result property="arm" column="ARM_WIDTH"/>
+        <result property="requirements" column="REQUIREMENTS"/>
+        <result property="details" column="PRODUCT_DETAILS"/>
+        <result property="filePath" column="FILE_PATH"/>
+        <result property="status" column="STATUS"/>
+    </resultMap>
+
+    <resultMap type="com.projectnike.nike.domain.orderDomain.ReplyVO" id="mapping_replylist">
+        <result property="num" column="ORDER_NUM"/>
+        <result property="commenter" column="COMMENTER"/>
+        <result property="content" column="CONTENT"/>
+        <result property="date" column="COMMENT_DATE"/>
+    </resultMap>
+
+    <delete id="removeList">
+        <![CDATA[
+        BEGIN
+            DELETE FROM ORDER_COMMENT WHERE ORDER_NUM = #{num};
+            DELETE FROM ORDER_PRODUCT WHERE ORDER_NUM = #{num};
+        END;
+        ]]>
+    </delete>
+
+    <select id="getOrderList" parameterType="String" resultType="com.projectnike.nike.domain.orderDomain.OrderVO" resultMap="mapping_orderlist">
+        <![CDATA[
+        SELECT *
+        FROM (SELECT
+              ORDER_NUM, STATUS, TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') AS ORDER_DATE, ITEM_NAME, QUANTITY, REQUESTER, ORDER_PLACE
+              FROM ORDER_PRODUCT)
+        ]]>
+        <trim prefix="where (" suffix=")" prefixOverrides="or | and">
+            <foreach item="type" collection="typeArr">
+                <if test="type == 'W'.toString()">
+                    or REQUESTER like '%' || #{keyword} || '%'
+                </if>
+                <if test="type == 'O'.toString()">
+                    or ORDER_PLACE like '%' || #{keyword} || '%'
+                </if>
+                <if test="type == 'N'.toString()">
+                    or ITEM_NAME like '%' || #{keyword} || '%'
+                </if>
+                <if test="startDt != null and startDt != ''">
+                    <![CDATA[
+                    or ORDER_DATE >= #{startDt}
+                    ]]>
+                </if>
+                <if test="endDt != null and endDt != ''">
+                    <![CDATA[
+                    and ORDER_DATE <= #{endDt}
+                    ]]>
+                </if>
+            </foreach>
+        </trim>
+        ORDER BY ORDER_DATE DESC
+    </select>
+
+
+    <select id="getListWithPaging" resultType="com.projectnike.nike.domain.orderDomain.OrderVO" resultMap="mapping_orderlist">
+        SELECT
+        *
+        FROM (
+        SELECT /*+INDEX_DESC(ORDER_PRODUCT pk_ORDER_NUM) */
+        ROWNUM rn, ORDER_NUM, STATUS, TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') AS ORDER_DATE, ITEM_NAME, QUANTITY, REQUESTER, ORDER_PLACE
+        FROM
+        ( SELECT *
+        FROM ORDER_PRODUCT
+        ORDER BY ORDER_DATE DESC
+        )
+        <choose>
+            <when test="(type != null and type != ''.toString()) or (startDt != null and startDt != '') or (endDt != null and endDt != '') or (keyword != null and keyword != '')">
+                <trim prefix="where (" suffix=")" prefixOverrides="and | or">
+                    <foreach item="type" collection="typeArr">
+                        <if test="type == 'W'.toString()">
+                            REQUESTER like '%' || #{keyword} || '%'
+                        </if>
+                        <if test="type == 'O'.toString()">
+                            ORDER_PLACE like '%' || #{keyword} || '%'
+                        </if>
+                        <if test="type == 'N'.toString()">
+                            ITEM_NAME like '%' || #{keyword} || '%'
+                        </if>
+                        <if test="startDt != null and startDt != ''">
+                            <![CDATA[ and ORDER_DATE >= #{startDt} ]]>
+                        </if>
+                        <if test="endDt != null and endDt != ''">
+                            <![CDATA[ and ORDER_DATE <= #{endDt}  ]]>
+                        </if>
+                    </foreach>
+                </trim>
+            </when>
+        </choose>
+        )
+        <![CDATA[
+               WHERE 1=1
+                   AND RN <= #{pageNum} * #{amount}
+                   AND RN > (#{pageNum} - 1) * #{amount}
+           ]]>
+    </select>
+
+
+
+
+
+
+    <!--총 갯수-->
+    <select id="getOrderTotal" resultType="int">
+        SELECT COUNT(*)
+        FROM (
+        SELECT /*+INDEX_DESC(ORDER_PRODUCT pk_ORDER_NUM) */
+        ROWNUM rn, ORDER_NUM, STATUS, TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') AS ORDER_DATE, ITEM_NAME, QUANTITY, REQUESTER, ORDER_PLACE
+        FROM ORDER_PRODUCT
+        ORDER BY ORDER_DATE DESC
+        )
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="(type != null and type != ''.toString()) or (startDt != null and startDt != '') or (endDt != null and endDt != '') or (keyword != null and keyword != '')">
+                <foreach item="type" collection="typeArr">
+                    <if test="type == 'W'.toString()">
+                        AND REQUESTER like '%' || #{keyword} || '%'
+                    </if>
+                    <if test="type == 'O'.toString()">
+                        AND ORDER_PLACE like '%' || #{keyword} || '%'
+                    </if>
+                    <if test="type == 'N'.toString()">
+                        AND ITEM_NAME like '%' || #{keyword} || '%'
+                    </if>
+                </foreach>
+                <if test="startDt != null and startDt != ''">
+                    <![CDATA[ AND ORDER_DATE >= #{startDt} ]]>
+                </if>
+                <if test="endDt != null and endDt != ''">
+                    <![CDATA[ AND ORDER_DATE <= #{endDt}  ]]>
+                </if>
+            </if>
+        </trim>
+        ORDER BY ORDER_DATE DESC
+    </select>
+
+
+
+
+    <select id="getListOne" resultType="com.projectnike.nike.domain.orderDomain.OrderVO" resultMap="mapping_orderlist">
+        SELECT
+        ORDER_NUM,
+        REQUESTER,
+        BRAND_NAME,
+        ITEM_TYPE,
+        ORDER_PLACE,
+        ITEM_NAME,
+        ITEM_SIZE,
+        QUANTITY,
+        CHEST,
+        FRONT_LENGTH,
+        SLEEVE_LENGTH,
+        BACK_WIDTH,
+        ARM_WIDTH,
+        REQUIREMENTS,
+        PRODUCT_DETAILS,
+        FILE_PATH
+        FROM ORDER_PRODUCT
+        WHERE ORDER_NUM = #{num}
+    </select>
+
+
+    <insert id="addList" >
+        INSERT INTO ORDER_PRODUCT
+        (REQUESTER, BRAND_NAME, ITEM_TYPE,
+        ORDER_PLACE, ITEM_NAME, ITEM_SIZE, QUANTITY,
+        CHEST, FRONT_LENGTH, SLEEVE_LENGTH, BACK_WIDTH,
+        ARM_WIDTH, REQUIREMENTS,
+        PRODUCT_DETAILS, FILE_PATH)
+        VALUES
+        (#{requester}, #{brand}, #{type}, #{place}, #{name}, #{size}, #{quantity}, #{chest},
+        #{front}, #{sleeve}, #{back}, #{arm}, #{requirements}, #{details}, #{filePath})
+    </insert>
+
+
+    <update id="modifyList">
+        UPDATE ORDER_PRODUCT SET
+        REQUESTER = #{requester}
+        , BRAND_NAME = #{brand}
+        , ITEM_TYPE = #{type}
+        , ORDER_PLACE = #{place}
+        , ITEM_NAME = #{name}
+        , ITEM_SIZE = #{size}
+        , QUANTITY = #{quantity}
+        , CHEST = #{chest}
+        , FRONT_LENGTH = #{front}
+        , SLEEVE_LENGTH = #{sleeve}
+        , BACK_WIDTH = #{back}
+        , ARM_WIDTH = #{arm}
+        , REQUIREMENTS = #{requirements}
+        , PRODUCT_DETAILS = #{details}
+        , FILE_PATH = #{filePath}
+        WHERE ORDER_NUM = #{num}
+    </update>
+
+
+    <!--REPLY SECTION-->
+    <select id="getReply" resultType="com.projectnike.nike.domain.orderDomain.ReplyVO"  resultMap="mapping_replylist">
+        SELECT
+        a.ORDER_NUM, b.COMMENTER, b.CONTENT, COMMENT_DATE
+        FROM
+        ORDER_PRODUCT a, ORDER_COMMENT b
+        WHERE
+        a.ORDER_NUM = b.ORDER_NUM
+        ORDER BY COMMENT_DATE ASC
+    </select>
+
+    <insert id="addReply">
+        INSERT INTO ORDER_COMMENT(ORDER_NUM, COMMENTER, CONTENT)
+        VALUES(#{num},#{commenter},#{content})
+    </insert>
+
+    <update id="modifyStatus">
+        UPDATE ORDER_PRODUCT SET
+        STATUS = #{status}
+        WHERE ORDER_NUM = #{num}
+    </update>
+</mapper>

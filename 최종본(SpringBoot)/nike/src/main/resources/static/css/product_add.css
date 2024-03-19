@@ -1,0 +1,219 @@
+@charset "EUC-KR";
+.pro_add_header {
+  margin: 120px 0 0 210px;
+  width: 1000px;
+  padding: 20px;
+  border: 2px solid #dfdbdd;
+  border-radius: 10px;
+  background-color: #f8f7f8;
+  font-family: 'SejonghospitalBold'; 
+  height: 460px;
+}
+
+.pro_add_header .proList {
+  font-size: 25px;
+  text-decoration-line: none;
+  color: #40A2D8;
+  margin-top:10px;
+}
+
+.pro_add_header .proList .material-symbols-outlined{
+	width: 30px;
+	height: 30px;
+	background-color: #40A2D8;
+	color: #F0EDCF;
+	border-radius: 10px;
+	padding: 5px 0 0 4px;
+    margin-right: 10px;
+}
+
+.pro_add {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: 445px;
+}
+
+.pro_add h2 {
+  	font-size: 35px;
+  	display: flex;
+	justify-content: center;
+}
+
+.proInfo {
+  width: 1000px;
+  height: 290px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+}
+
+.proInfo strong {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.item_num {
+	top: 45px;
+	left: 40px;
+	height: 50px;
+	position: absolute
+}
+
+.item_num input[type="text"] {
+  width: 55px;
+  transition:1s;
+  margin-top: 10px;
+  height: 25px;
+  border-radius: 10px;
+}
+
+.item_num input[type="text"]:hover{
+  width: 160px;
+}
+
+.add_gender {
+	position: absolute;
+	left: 400px;
+	top: 45px;
+	width: 130px;
+	height: 50px;
+}
+
+.add_gender input[type="radio"] {
+   margin-top: 10px;
+}
+
+.add_category{
+	position: absolute;
+	top: 45px;
+	left: 800px;
+	width: 180px;
+	height: 50px;
+}
+
+.add_type {
+	position: absolute;
+	top: 145px;
+	left: 800px;
+	width: 180px;
+	height: 50px;
+}
+
+.add_size{
+	position: absolute;
+	top: 245px;
+	left: 800px;
+	width: 180px;
+	height: 50px;
+}
+
+.add_category select{
+  width: 100px;
+  margin-top: 10px;
+  height: 30px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.add_type select{
+  width: 100px;
+  margin-top: 10px;
+  height: 30px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.add_size select{
+  width: 100px;
+  margin-top: 10px;
+  height: 30px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.add_name{
+	top: 145px;
+	left: 40px;
+	height: 50px;
+	position: absolute;
+}
+
+.add_name input[type="text"] {
+  width: 55px;
+  transition:1s;
+  margin-top: 10px;
+  height: 25px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.add_name input[type="text"]:hover{
+  width: 160px;
+}
+
+.add_color{
+	top: 245px;
+	left: 40px;
+	height: 50px;
+	position: absolute;
+}
+
+.add_color input[type="text"] {
+  width: 55px;
+  transition:1s;
+  margin-top: 10px;
+  height: 25px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.add_color input[type="text"]:hover{
+  width: 160px;
+}
+
+.add_price{
+	top: 145px;
+	left: 400px;
+	height: 50px;
+	position: absolute;
+}
+
+.add_price input[type="text"] {
+  width: 55px;
+  transition:1s;
+  margin-top: 10px;
+  height: 25px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.add_price input[type="text"]:hover{
+  width: 160px;
+}
+
+.btn-w {
+  text-align: center;
+}
+
+.input-btn-w {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'SejonghospitalBold'; 
+  background-color: #40A2D8;
+  border: 2px solid black;
+  color: #F0EDCF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+}
+
+.input-btn-w:hover {
+  background-color: #F0EDCF;
+  color: #40A2D8;
+}

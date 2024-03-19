@@ -1,0 +1,262 @@
+@font-face {
+    font-family: 'SejonghospitalBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.text{
+    padding-left: 10px;
+    outline: none;
+    font-family: 'SejonghospitalBold';
+}
+.text:focus::placeholder{
+    color: transparent;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+.container .content{
+    margin-top: 100px;
+    margin-left: 250px; 
+    display: flex;
+    border: 1px solid rgba(0,0,0,0.18);
+    background-color: #8785A2;
+}
+
+#info{
+    width: 40%;
+    height: 500px;
+}
+
+#title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 30px;
+    font-family: 'SejonghospitalBold';
+    background-color: #0B60B0;
+    color: #F0EDCF;
+}
+
+#search{
+    width: 60%;
+    height: 500px;
+}
+
+
+.line{
+
+    display: flex;
+    align-items: center;
+}
+
+
+.line .lab{
+    display: flex;
+    font-family: 'SejonghospitalBold';
+    justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #40A2D8;
+    margin: 5px;
+    color: #F0EDCF;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.line .text{
+    width: 250px;
+    height: 30px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.choice{
+	font-family: 'SejonghospitalBold';
+}
+
+#ok{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    height: 50px;
+}
+
+#sub{
+    border-radius: 5px;
+    font-family: 'SejonghospitalBold';
+    border: none;
+    background-color: #40A2D8;
+    width: 60px;
+    height: 40px;
+}
+
+#sub:hover, .pageNum:hover, #searchbtn:hover{
+	cursor: pointer;
+}
+
+#search .searchText{
+    background-color: #0B60B0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+#search .searchText .text{
+    box-sizing: border-box;
+    width: 200px;
+    height: 30px;
+}
+
+#searchbtn{
+    box-sizing: border-box;
+    font-family: 'SejonghospitalBold';
+    border-radius: 5px;
+    background-color: #40A2D8;
+    border: none;
+    width: 50px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+#searchselect{
+    font-family: 'SejonghospitalBold';
+    box-sizing: border-box;
+    margin-right: 10px;
+    height: 30px;
+    text-align: center;
+}
+
+.result{
+    height: 400px;
+}
+
+#resultTable{
+	width:100%;
+    height: 100%;
+}
+
+#resultTable table{
+	width: 100%;
+}
+
+.resultCulumn{
+	background-color: white;
+}
+
+.resultCulumn:hover{
+	background-color: #FFE2E2;
+}
+
+.selectRow:hover{
+	cursor: pointer;
+	
+}
+
+.radio{
+    width: 10%;
+}
+
+.type{
+    width: 10%;
+}
+
+.name{
+    width: 60%;
+}
+
+.size{
+    width: 10%;
+}
+
+.resultRow{
+    text-align: center;
+    font-family: 'SejonghospitalBold';
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(0,0,0,0.18);
+    height: 30px;
+}
+
+.resultTitle{
+    background-color: #40A2D8;
+    color: #F0EDCF;
+    height: 30px;
+}
+
+.pageNum{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	width:30px;
+	height:30px;
+	border-radius: 5px;
+    font-family: 'SejonghospitalBold';
+    color: black;
+    text-decoration: none;
+}
+
+#page ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+#page ul li{
+    margin: 0 10px;
+}
+
+#page ul .pagebtn{
+    width: 50px;
+    background-color: #40A2D8;
+}
+
+.subjectbox{
+	display:flex;
+	align-items:center;
+	font-family: 'SejonghospitalBold';
+	background-color:white;
+	border-radius:5px;
+	box-sizing:border-box;
+	border: 1px solid rgba(0,0,0,0.18);
+	width: 250px;
+	height: 30px;
+	padding-left: 10px;
+}
+
+#date{
+	box-sizing:border-box;
+	padding-right:5px;
+	width: 30px;
+	height: 30px;
+	outline: none;
+}
+
+input[type=date]::-webkit-datetime-edit-text { 
+  -webkit-appearance: none; 
+  display: none; 
+} 
+
+input[type=date]::-webkit-datetime-edit-month-field{ 
+  -webkit-appearance: none; 
+  display: none; 
+} 
+
+input[type=date]::-webkit-datetime-edit-day-field {
+  -webkit-appearance: none; 
+  display: none; 
+} 
+
+input[type=date]::-webkit-datetime-edit-year-field { 
+  -webkit-appearance: none; 
+  display: none; 
+}

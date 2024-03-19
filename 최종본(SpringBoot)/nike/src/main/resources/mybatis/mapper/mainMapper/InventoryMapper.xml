@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.projectnike.nike.mapper.mainMapper.InventoryMapper">
+    <select id="getSize" resultType="string">
+        SELECT ITEM_SIZE
+        FROM PRODUCTS
+        GROUP BY ITEM_SIZE
+    </select>
+
+    <select id="managementList" resultType="com.projectnike.nike.domain.mainDomain.ProductsVO">
+        SELECT P.CATEGORY ,p.ITEM_NUM, P.ITEM_NAME ,P.ITEM_SIZE ,IM.QUANTITY
+        FROM ITEM_MANAGEMENT im, PRODUCTS p
+        WHERE im.ITEM_NUM =P.ITEM_NUM
+        AND P.CATEGORY LIKE '%'||#{pd.category}||'%'
+        AND P.ITEM_NAME LIKE '%'||#{pd.item_name}||'%'
+        AND P.ITEM_SIZE LIKE #{pd.item_size}||'%'
+        ORDER BY p.ITEM_NAME OFFSET (#{pg.pageNum}-1)*#{pg.pageSize} ROWS FETCH NEXT #{pg.pageSize} ROW ONLY
+    </select>
+
+    <select id="dateSelectList" resultType="com.projectnike.nike.domain.mainDomain.ImportVO">
+        (SELECT
+            i.IMPORT_DATE,
+            i.DIVISION,
+            i.ITEM_NUM,
+            p.CATEGORY ,
+            p.ITEM_NAME ,
+            i.IMPORT_QUANTITY as import_quantity
+        FROM
+            IMPORT i, PRODUCTS p
+        WHERE
+            i.ITEM_NUM = p.ITEM_NUM
+            AND P.ITEM_NAME LIKE '%'||#{ip.item_name}||'%'
+            AND P.CATEGORY LIKE '%'||#{ip.category}||'%'
+            AND I.DIVISION LIKE '%'||#{ip.division}||'%'
+        <if test="pg.startDate != null and pg.endDate != null">
+            AND I.IMPORT_DATE BETWEEN #{pg.startDate} AND #{pg.endDate}
+        </if>
+
+        <if test="pg.startDate != null and pg.endDate == null">
+            <![CDATA[
+                AND I.IMPORT_DATE >= #{pg.startDate}
+            ]]>
+        </if>
+        <if test="pg.startDate == null and pg.endDate != null">
+            <![CDATA[
+                AND I.IMPORT_DATE <= #{pg.endDate}
+            ]]>
+        </if>
+        )
+        UNION ALL
+        (SELECT
+            E.EXPORT_DATE as IMPORT_DATE,
+            E.DIVISION,
+            E.ITEM_NUM,
+            P.CATEGORY,
+            P.ITEM_NAME,
+            E.EXPORT_QUANTITY as import_quantity
+        FROM
+            EXPORT e, PRODUCTS p
+        WHERE
+            E.ITEM_NUM =P.ITEM_NUM
+            AND P.ITEM_NAME LIKE '%'||#{ip.item_name}||'%'
+            AND P.CATEGORY LIKE '%'||#{ip.category}||'%'
+            AND E.DIVISION LIKE '%'||#{ip.division}||'%'
+        <if test="pg.startDate != null and pg.endDate != null">
+            AND E.EXPORT_DATE BETWEEN #{pg.startDate} AND #{pg.endDate}
+        </if>
+        <if test="pg.startDate != null and pg.endDate == null">
+            <![CDATA[
+                AND E.EXPORT_DATE >= #{pg.startDate}
+            ]]>
+        </if>
+        <if test="pg.startDate == null and pg.endDate != null">
+            <![CDATA[
+                AND E.EXPORT_DATE <= #{pg.endDate}
+            ]]>
+        </if>
+        )
+        ORDER BY IMPORT_DATE OFFSET (#{pg.pageNum}-1)*#{pg.pageSize} ROWS FETCH NEXT #{pg.pageSize} ROW ONLY
+    </select>
+
+    <select id="dateSelectCount" resultType="integer">
+        SELECT a.count+b.count
+        FROM
+        (SELECT
+            count(*) count
+        FROM
+            IMPORT i, PRODUCTS p
+        WHERE
+            i.ITEM_NUM = p.ITEM_NUM
+            AND P.ITEM_NAME LIKE '%'||#{ip.item_name}||'%'
+            AND P.CATEGORY LIKE '%'||#{ip.category}||'%'
+            AND I.DIVISION LIKE '%'||#{ip.division}||'%'
+        <if test="pg.startDate != null and pg.endDate != null">
+            AND I.IMPORT_DATE BETWEEN #{pg.startDate} AND #{pg.endDate}
+        </if>
+
+        <if test="pg.startDate != null and pg.endDate == null">
+        <![CDATA[
+            AND I.IMPORT_DATE >= #{pg.startDate}
+        ]]>
+        </if>
+        <if test="pg.startDate == null and pg.endDate != null">
+        <![CDATA[
+            AND I.IMPORT_DATE <= #{pg.endDate}
+        ]]>
+        </if>
+        ) a
+        ,
+        (SELECT
+            count(*) count
+        FROM
+            EXPORT e, PRODUCTS p
+        WHERE
+            E.ITEM_NUM =P.ITEM_NUM
+            AND P.ITEM_NAME LIKE '%'||#{ip.item_name}||'%'
+            AND P.CATEGORY LIKE '%'||#{ip.category}||'%'
+            AND E.DIVISION LIKE '%'||#{ip.division}||'%'
+        <if test="pg.startDate != null and pg.endDate != null">
+            AND E.EXPORT_DATE BETWEEN #{pg.startDate} AND #{pg.endDate}
+        </if>
+        <if test="pg.startDate != null and pg.endDate == null">
+        <![CDATA[
+            AND E.EXPORT_DATE >= #{pg.startDate}
+        ]]>
+        </if>
+        <if test="pg.startDate == null and pg.endDate != null">
+        <![CDATA[
+            AND E.EXPORT_DATE <= #{pg.endDate}
+        ]]>
+        </if>
+        ) b
+    </select>
+
+</mapper>

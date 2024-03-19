@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.projectnike.nike.mapper.mainMapper.MainMapper">
+    <select id="getYear" resultType="string">
+        SELECT
+            TO_CHAR(MIN(IMPORT_DATE),'YYYY')
+        FROM IMPORT
+    </select>
+
+    <select id="getSalesSum" resultType="com.projectnike.nike.domain.mainDomain.ImportVO">
+        SELECT SUBSTR(EXDATE,6,8) as division, SUM(SALES) as supply_price
+        FROM
+        (SELECT E.ITEM_NUM, TO_CHAR(EXPORT_DATE,'YYYY-MM') EXDATE,SUM(EXPORT_QUANTITY*PRICE)-SUM(EXPORT_QUANTITY *A.VAT) sales
+        FROM EXPORT e, (SELECT ITEM_NUM, SUPPLY_PRICE+VAT VAT FROM IMPORT i GROUP BY ITEM_NUM,(SUPPLY_PRICE+VAT))A
+        WHERE TO_CHAR(e.EXPORT_DATE,'YYYY')=#{year} AND E.ITEM_NUM =A.ITEM_NUM
+        GROUP BY E.ITEM_NUM,TO_CHAR(EXPORT_DATE,'YYYY-MM'))
+        GROUP BY EXDATE
+        ORDER BY division
+    </select>
+</mapper>
