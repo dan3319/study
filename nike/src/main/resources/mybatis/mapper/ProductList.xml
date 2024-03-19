@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.projectnike.nike.mapper.ProductListMapper">
+    <!--제품 리스트 보여주기/ 예전 코드, 안쓰는 코드, 아래에 있는 getListWithPaging 사용-->
+    <select id="getFreeProductList" parameterType="String" resultType="com.projectnike.nike.domain.ProductListVO">
+        SELECT
+            ROWNUM,
+            ITEM_NUM,
+            GENDER,
+            CATEGORY,
+            ITEM_TYPE,
+            ITEM_NAME,
+            ITEM_SIZE,
+            COLOR,
+            PRICE
+        FROM  PRODUCTS
+        WHERE
+            1=1
+            <if test="search != null">
+                <if test="search != ''">
+                    AND ITEM_NAME LIKE '%' || #{search} || '%'
+                </if>
+                <if test="search == ''">
+                    AND 1=0
+                </if>
+            </if>
+        ORDER BY
+            <choose>
+                <when test="type == null">rownum</when>
+                <when test="type == 'item_num'">ITEM_NUM</when>
+                <when test="type == 'gender'">GENDER</when>
+                <when test="type == 'category'">CATEGORY</when>
+                <when test="type == 'item_type'">ITEM_TYPE</when>
+                <when test="type == 'item_name'">ITEM_NAME</when>
+                <when test="type == 'item_size'">ITEM_SIZE</when>
+                <when test="type == 'color'">COLOR</when>
+                <when test="type == 'price'">PRICE</when>
+                <otherwise>rownum</otherwise>
+            </choose>
+    </select>
+
+    <select id="getListWithPaging" resultType="com.projectnike.nike.domain.ProductListVO" >
+        SELECT
+            ROWNUM,
+            ITEM_NUM,
+            GENDER,
+            CATEGORY,
+            ITEM_TYPE,
+            ITEM_NAME,
+            ITEM_SIZE,
+            COLOR,
+            PRICE
+        FROM (
+            SELECT
+                    ROWNUM AS rn,
+                    ITEM_NUM,
+                    GENDER,
+                    CATEGORY,
+                    ITEM_TYPE,
+                    ITEM_NAME,
+                    ITEM_SIZE,
+                    COLOR,
+                    PRICE
+            FROM
+                ( SELECT *
+                FROM PRODUCTS
+                WHERE
+                    1=1
+                    <if test="search != null">
+                        <if test="search != ''">
+                            AND ITEM_NAME LIKE '%' || #{search} || '%'
+                        </if>
+                        <if test="search == ''">
+                            AND 1=0
+                        </if>
+                    </if>
+                ORDER BY
+                    <choose>
+                        <when test="type == null">rownum</when>
+                        <when test="type == 'item_num'">ITEM_NUM</when>
+                        <when test="type == 'gender'">GENDER</when>
+                        <when test="type == 'category'">CATEGORY</when>
+                        <when test="type == 'item_type'">ITEM_TYPE</when>
+                        <when test="type == 'item_name'">ITEM_NAME</when>
+                        <when test="type == 'item_size'">ITEM_SIZE</when>
+                        <when test="type == 'color'">COLOR</when>
+                        <when test="type == 'price'">PRICE</when>
+                        <otherwise>rownum</otherwise>
+                    </choose>
+                )
+            <![CDATA[
+            WHERE 1=1 ) a
+        WHERE
+            1=1
+            AND a.rn <= #{pageNum} * #{amount}
+            AND a.rn > (#{pageNum} - 1) * #{amount}
+       ]]>
+
+    </select>
+
+    <!--총 갯수-->
+    <select id="getOrderTotal" resultType="int">
+        SELECT COUNT(*)
+        FROM (
+            SELECT
+                ROWNUM,
+                ITEM_NUM,
+                GENDER,
+                CATEGORY,
+                ITEM_TYPE,
+                ITEM_NAME,
+                ITEM_SIZE,
+                COLOR,
+                PRICE
+            FROM PRODUCTS
+            WHERE
+                1=1
+                <if test="search != null">
+                    <if test="search != ''">
+                        AND ITEM_NAME LIKE '%' || #{search} || '%'
+                    </if>
+                    <if test="search == ''">
+                        AND 1=0
+                    </if>
+                </if>
+            ORDER BY
+                <choose>
+                    <when test="type == null">rownum</when>
+                    <when test="type == 'item_num'">ITEM_NUM</when>
+                    <when test="type == 'gender'">GENDER</when>
+                    <when test="type == 'category'">CATEGORY</when>
+                    <when test="type == 'item_type'">ITEM_TYPE</when>
+                    <when test="type == 'item_name'">ITEM_NAME</when>
+                    <when test="type == 'item_size'">ITEM_SIZE</when>
+                    <when test="type == 'color'">COLOR</when>
+                    <when test="type == 'price'">PRICE</when>
+                    <otherwise>rownum</otherwise>
+                </choose>
+        )
+    </select>
+
+    <!--제품 등록-->
+    <insert id="addProduct">
+        INSERT INTO products
+        VALUES (#{item_num}, #{gender}, #{category}, #{item_type},
+        #{item_name}, #{item_size}, #{color}, #{price})
+    </insert>
+
+    <!--제품 삭제-->
+    <delete id="delProduct">
+        DELETE FROM PRODUCTS  WHERE item_num  = #{num}
+    </delete>
+</mapper>

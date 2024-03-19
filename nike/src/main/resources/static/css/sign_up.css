@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'Hahmlet-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #FFE4BA;
+}
+
+.hide {
+	display: none;
+}
+
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    box-sizing: border-box;
+    width: 560px;
+    height: 700px;
+    background-color: white;
+    border-radius: 35px;    
+}
+
+.conteiner .title {
+	font-family: 'Hahmlet-Regular';
+    font-size: 36px;
+    font-weight: bold;
+    color: #FFC0BA;
+    padding-top: 30px;
+}
+
+.conteiner .sign_up_box {
+    padding: 50px;
+    
+}
+
+.conteiner .sign_up_box input {
+	font-family: 'Hahmlet-Regular';
+	color: #FFC0BA;
+    width: 380px;
+    height: 50px;
+    margin: 10px 0px 10px 0px;
+    background-color: #FFECBA;
+    font-size: 12px;
+    font-style: italic;
+    border-radius: 10px;
+    border: none;
+}
+
+.conteiner .sign_up_box .submit_bt {
+	font-family: 'Hahmlet-Regular';
+    background-color: #FFC0BA;
+    border-radius: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    font-style: normal;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'Hahmlet-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	background-color: #FFE4BA;
+}
+
+.conteiner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 800px;
+	height: 500px;
+	border-radius: 20px;
+	background-color: white;
+}
+
+
+.find_id_box {
+	font-family: 'Hahmlet-Regular';
+	width: 300px;
+	height: 180px;
+	background-color: #FFECBA;
+	border-radius: 20px;
+	margin: 0 auto;
+	
+}
+
+.find_pw_box {
+	font-family: 'Hahmlet-Regular';
+	width: 300px;
+	height: 215px;
+	background-color: #FFECBA;
+	border-radius: 20px;
+	margin: 0 auto;
+	
+}
+
+.find_id_box h3 {
+	color: #FFC0BA;
+	text-align: center;
+	padding-top: 10px;
+	margin: 10px 0px 15px 0px;
+}
+
+.find_pw_box h3 {
+	color: #FFC0BA;	
+	text-align: center;
+	padding-top: 10px;
+	margin: 10px 0px 15px 0px;
+}
+
+.find_id_box input {
+	font-family: 'Hahmlet-Regular';
+	position: relative;
+	left: 58px;
+	padding: 5px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	height: 20px;
+	border: none;
+}
+
+.find_pw_box input {
+	font-family: 'Hahmlet-Regular';
+	position: relative;
+	left: 58px;
+	padding: 5px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	height: 20px;
+	border: none;
+}
+
+.find_id_box .find_but {
+	font-family: 'Hahmlet-Regular';
+	color: white;
+	background-color: #FFC0BA;
+	margin-top: 10px;
+	width: 65px;
+	height: 30px;
+	border: none;
+	border-radius: 6px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.find_pw_box .find_but {
+	font-family: 'Hahmlet-Regular';
+	color: white;
+	background-color: #FFC0BA;
+	margin-top: 10px;
+	width: 65px;
+	height: 30px;
+	border: none;
+	border-radius: 6px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.find_id_box .back_but {
+	font-family: 'Hahmlet-Regular';
+	color: white;
+	background-color: #FFC0BA;
+	margin-top: 10px;
+	width: 70px;
+	height: 30px;
+	border: none;
+	border-radius: 6px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.find_pw_box .back_but {
+	font-family: 'Hahmlet-Regular';
+	color: white;
+	background-color: #FFC0BA;
+	margin-top: 10px;
+	width: 70px;
+	height: 30px;
+	border: none;
+	border-radius: 6px;
+	font-size: 13px;
+	cursor: pointer;
+}

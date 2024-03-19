@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'SejonghospitalBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+header{
+	position:fixed;
+	align-content:center;
+	top:0;
+	right:0;
+	left:0;
+	height:80px;
+	background-color: #40A2D8;
+	z-index: 1;
+}
+
+.logo{
+	margin:10px 30px;
+	font-family: 'SejonghospitalBold';
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+}
+
+.logo .logodiv{
+	display: flex;	
+	cursor: pointer;
+	color: #F0EDCF;
+	text-decoration: none;
+}
+
+.logo .logodiv img{
+	margin-right: 20px;
+	background-color: #F0EDCF;
+	border-radius: 50%;
+	padding: 10px;
+}
+
+
+.logo .logodiv .logoname{
+	display: inline;
+	font-size: 30px;
+	align-self: center;
+}
+
+
+header .login button{
+	width: 138px;
+	height: 40px;
+	border-radius: 5px;
+	font-family: 'SejonghospitalBold';
+	border: none;
+	box-shadow: none;
+	background-color: #F0EDCF;
+	color: #40A2D8;
+	cursor: pointer;
+}
+
+header .login button:hover{
+	background-color: #0B60B0;
+	color: #F0EDCF;
+}
+
+footer {
+	margin-top: 40px;
+	padding-top:40px;
+	display: block;
+	position:static;
+	bottom:0;	
+	left: 17.8%;
+	height:90px;
+	border-top: 1px solid #c8c8c8;
+	overflow: hidden;
+	
+}
+
+footer div {
+	margin: 20px 50px;
+	color: gray;
+	font-size: 10px;
+	text-align: center;
+}
+
+footer img{
+	width:20px;
+	height:20px;
+}
+
+
+
+.menu {
+	position:fixed;
+	top:20px;
+	right:20px;
+	width: 191px;
+	overflow: hidden;
+	z-index: 100;
+  }
+  
+.menu > .list {
+	width: 105%; /*20*5=100%*/
+	float: left;
+	text-align: center;
+	line-height: 40px;
+	background-color: #5778ff;
+  }
+  
+.menu a {
+	color: #fff;
+}
+  
+.menu .submenu > .list {
+	line-height: 50px;
+	background-color: #94a9ff;
+  }
+  
+.menu .submenu {
+	height: 0; /*ul의 높이를 안보이게 처리*/
+	overflow: hidden;
+  }
+  
+.menu>.list:hover {
+	background-color: #94a9ff;
+	transition-duration: 0.5s;
+  }
+  
+.menu>.list:hover .submenu {
+	height: 100px; /*서브메뉴 li한개의 높이 50*5*/
+	transition-duration: 1s;
+  }
